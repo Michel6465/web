@@ -1,0 +1,96 @@
+#! /bin/bash -i
+
+# Get first parameter
+if [ $# -gt 0 ]
+then
+	case $1 in
+		compile) # Compiles all views manually
+			for f in views/*.php
+			do
+				./system/compiler/viewCompiler.sh $f
+			done
+			;;
+			
+		observe) # Set observers to auto compile views
+			./artisan stop
+			./system/compiler/observe.sh
+			sleep 0.1
+			ps | wc -l
+			;;
+		
+		stop) # Remove all observers. Shouldn't be used manually
+			pkill observe.sh
+			pkill sleep
+			ps
+			;;
+		
+		export)
+			name="../release"
+			
+			# Backup
+			./artisan backup
+			
+			echo -n "Exporting ... "
+			# Copy necessary files
+			rm -rf $name
+			mkdir -p $name
+			
+			cp -Rf compiled-views $name/
+			cp -Rf public $name/
+			cp -Rf controllers $name/
+			cp -Rf models $name/
+			cp -Rf config $name/
+			
+			mkdir -p $name/system/helpers/
+			mkdir -p $name/system/router/
+			cp -Rf system/helpers $name/system/helpers/
+			cp -Rf system/router $name/system/router/
+			cp artisan .htaccess readme.md $name/
+			
+			# Check copy went well
+			if (( `ls | wc -l` == `ls $name | wc -l` + 5 ))
+			then
+				echo -e "Done."
+			else
+				echo -e "Error"
+				echo `ls $name | wc -l`
+				echo `ls | wc -l`
+				rm -rf $name
+				exit
+			fi
+			
+			# Make archive
+			tar -cvzf ../mywebsite.tar.gz $name
+			rm -rf $name
+			
+			echo -n "ssh -p 65002 u351694642@89.116.147.245" | xclip
+			echo "ssh command copied in middle-click clipboard"
+			
+			;;
+		
+		backup)
+			echo -n "Backing up ... "
+			mkdir -p ../backup
+			cp -Rf ../web ../backup
+			if [ `ls ../backup | wc -l` -eq 1 ]
+			then
+				echo -e "Done."
+			else
+				echo -e "Error"
+			fi
+			;;
+			
+		help)
+			echo -e "$ artisan compile to compile views"
+			echo -e "$ artisan help to display help"
+			;;
+
+		*)
+			echo -e "Unknown command '$1'. Commands: $ artisan help"
+			;;
+	esac
+else
+	echo -e "Arguments mandatory. $ artisan help"
+fi
+
+
