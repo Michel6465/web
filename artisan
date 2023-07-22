@@ -23,6 +23,25 @@ then
 			pkill sleep
 			ps
 			;;
+			
+		restore) # Restore the previous Gedit session (opened files)
+			#filesAsString=`grep --no-group-separator -B5 'group>gedit' ~/.local/share/recently-used.xbel | sed -n 1~6p | sed 's#  <bookmark href="file:///#/#g' | tail -n 50 | sed 's/"//g' | sed 's/Z>/@/g'`
+ 			
+			#echo ${filesAsString}
+			
+			#IFS='@' read -ra filesArray <<< $filesAsString
+			
+			#echo ${filesArray}
+			
+			#i=${#filesArray}
+			#while [ $i -ge 0 ]
+			#do
+			#	echo "${filesArray[$i]}"
+			#	echo ""
+			#	i=$(( i-1 ))
+			#done
+			echo -e "$0 $@ \e[1;38;5;208mWIP\e[0m"
+			;;
 		
 		export)
 			name="../release"
@@ -86,11 +105,13 @@ then
 			;;
 
 		*)
-			echo -e "Unknown command '$1'. Commands: $ artisan help"
+			echo -e "Unknown command '$1'"
+			./artisan help
 			;;
 	esac
 else
-	echo -e "Arguments mandatory. $ artisan help"
+	echo -e "Arguments mandatory."
+	./artisan help
 fi
 
 

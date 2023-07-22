@@ -9,11 +9,7 @@
 	<link rel="icon" type="image/x-icon" href="<?= asset('img/favicon-16x16.png') ?>" sizes="16x16" />
 </head>
 <body>
-	<nav>
-		<a href="<?= route('welcome') ?>" alt="Accueil"><img height="" src="<?= asset('img/favicon-32x32.png') ?>" alt="logo"></a>
-		<a href="<?= route('welcome') ?>" alt="Accueil">Accueil</a>
-		<a href="<?= route('menu') ?>" alt="Menu">Menu</a>
-	</nav>
+	<?php $_param=['route' => 'menu']; require_once 'navbar.php'; unset($_param); ?>
 	
 	<img class="underConstruction" src="<?= asset('img/underConstruction.jpg') ?>" alt="Under construction">
 	

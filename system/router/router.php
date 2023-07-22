@@ -14,6 +14,15 @@ switch ($request) {
 	case '/menu':
 		require "$viewsDirectory/menu.php";
 		break;
+	
+	case '/obli':
+	case '/game':
+		require "$viewsDirectory/obli.php";
+		break;
+	
+	case '/test':
+		require "$viewsDirectory/test.php";
+		break;
 
 	default:
 		http_response_code(404);

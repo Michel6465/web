@@ -1,0 +1,43 @@
+nav {
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	text-align: center;
+}
+
+nav * {	
+	z-index: 1;
+}
+
+nav a {
+	margin: 10px;
+	padding: 10px;
+	font-size: 2em;
+	background-color: #a60;
+	border: 5px solid #410;
+	border-radius: 6px;
+	text-decoration: none;
+	color: white;
+}
+
+nav .flex-end {
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+}
+
+nav .flex-end img {
+	height: 50px;
+	margin-right: 10px;
+	align-items: center;
+}
+
+nav #audioButton:hover {
+	cursor: pointer;
+	height: 55px;
+	margin-right: 5px;
+}
+
+nav a:hover {
+	background-color:#d80;
+}

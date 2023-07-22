@@ -14,8 +14,14 @@ function watch {
 	done
 }
 
+# If there is no *.cphp file, will return "./*.cphp", which is not what we want
+shopt -s nullglob # Set glob to null
+shopt -s nocaseglob # Case insensitive
 
-for f in views/*.cphp
+for f in views/*.{cphp,php}
 do
 	watch $f &
 done
+
+shopt -u nullglob # Unset
+shopt -u nocaseglob
