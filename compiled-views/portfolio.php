@@ -15,7 +15,7 @@
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" ></script>
 	</head>
 	<body class="container min-vw-100 p-0">
-		<div class="d-flex fullHeight overflow-hidden" id="presentation">
+		<div class="d-flex fullHeight position-relative overflow-hidden" id="presentation">
 			<div class="d-flex flex-column">
 				<div class="wow animate__animated animate__bounceInLeft">Louis Bouchereau</div>
 				<div class="wow animate__animated animate__bounceInLeft animate__delay-1s">Développeur full stack</div>
