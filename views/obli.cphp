@@ -1,18 +1,29 @@
 {{? include($_SERVER['DOCUMENT_ROOT'].'/system/helpers/functions.php') }}
 {{? include($_SERVER['DOCUMENT_ROOT'].'/system/helpers/constants.php') }}
 <!DOCTYPE html>
-<html lang="fr">
-	<head>
-		<title>Accueil</title>
-		<link rel="stylesheet" type="text/css" href="{{ asset('obli.css') }}">
-		<link rel="icon" type="image/x-icon" href="{{ asset('img/favicon-32x32.png') }}" sizes="32x32" />
-		<link rel="icon" type="image/x-icon" href="{{ asset('img/favicon-16x16.png') }}" sizes="16x16" />
-	</head>
-	<body>
-		@include('navbar.php', ['route' => 'obli'])
-		
-		<canvas id="canvas">Mon canvas</canvas>
-		
-		<script src="{{ asset('obli.js') }}" type="module"></script>
-	</body>
+<html>
+<head>
+	<title>Menu</title>
+	<link rel="stylesheet" type="text/css" href="{{ asset('welcome.css') }}">
+	<link rel="icon" type="image/x-icon" href="{{ asset('img/favicon-32x32.png') }}" sizes="32x32" />
+	<link rel="icon" type="image/x-icon" href="{{ asset('img/favicon-16x16.png') }}" sizes="16x16" />
+</head>
+<body>
+	@include('navbar.php', ['route' => 'menu'])
+	
+	<img class="underConstruction" src="{{ asset('img/underConstruction.jpg') }}" alt="Under construction">
+	
+	!!
+	
+	{{ $test }}
+	{{? $test=[3,2,5,4,8,9,8,7,9,9] }}
+	<?php echo("test"); ?>
+	
+	<ul>
+	@foreach ($test as $t)
+		<li>{{ $t }}</li>
+	@endforeach
+	</ul>
+	!!
+</body>
 </html>

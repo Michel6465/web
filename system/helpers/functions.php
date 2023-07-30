@@ -14,5 +14,9 @@ function asset ($assetName) {
 	return $result;
 }
 
+function ajax ($assetName) {
+	return "/ajax/$assetName";
+}
+
 
 ?>

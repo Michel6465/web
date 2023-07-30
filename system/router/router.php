@@ -23,9 +23,13 @@ switch ($request) {
 	case '/test':
 		require "$viewsDirectory/test.php";
 		break;
+	
+	case '/portfolio':
+		require "$viewsDirectory/portfolio.php";
+		break;
 
 	default:
-		http_response_code(404);
+		// http_response_code(404);
 		require "$viewsDirectory/404.php";
 		break;
 }
