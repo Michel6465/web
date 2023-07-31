@@ -172,17 +172,7 @@
 				</div>
 			</form>
 		</div>
-		<?php 
-			ini_set( 'display_errors', 1 );
-			error_reporting( E_ALL );
-			$from = "louis-bouchereau@louis-bouchereau.fr";
-			$to = "louis_bouchereau@laposte.net";
-			$subject = "Essai de PHP Mail";
-			$message = "PHP Mail fonctionne parfaitement";
-			$headers = "From:" . $from;
-			echo mail($to,$subject,$message, $headers);
-			echo "L'email a été envoyé.";
-		?>
+		
 		<script>
 			// Mail
 			async function sendMail() {
@@ -196,10 +186,12 @@
 					method: "POST",
 					body: JSON.stringify(data)
 				});
-				console.log("sent")
 				
 				const res = await response.json();
-				console.log(res)
+
+				let result = (res == 'ok')
+							? 'Je vous recontacterai sous peu'
+							: 'Le mail n\'a pas pu être envoyé. Vous pouvez toujours me contacter à louis-bouchereau@louis-bouchereau.fr';
 				
 				showText(contact.getElementsByTagName('span')[0], res, 0);
 			}
