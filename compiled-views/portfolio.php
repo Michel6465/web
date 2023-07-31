@@ -15,17 +15,35 @@
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" ></script>
 	</head>
 	<body class="container min-vw-100 p-0">
+		<?php $_param=['route' => 'portfolio']; require_once 'navbar.php'; unset($_param); ?>
 		<div class="d-flex fullHeight position-relative overflow-hidden" id="presentation">
-			<div class="d-flex flex-column">
-				<div class="wow animate__animated animate__bounceInLeft">Louis Bouchereau</div>
-				<div class="wow animate__animated animate__bounceInLeft animate__delay-1s">Développeur full stack</div>
+			<div class="d-flex flex-column align-items-start">
+				<div class="wow animate__animated animate__bounceInLeft">Bonjour, moi c'est</div>
+				<div data-wow-delay="250ms"class="wow animate__animated animate__bounceInLeft">Louis Bouchereau</div>
+				<div data-wow-delay="500ms" class="wow animate__animated animate__bounceInLeft">Développeur full stack</div>
 			</div>
 			<img class="position-absolute vw-100" src="<?= asset('img/portfolio/background.jpg') ?>" alt="">
 		</div>
 		
-		<div class="d-flex fullHeight flex-column" id="competences">
-			<h2 class="w-100 justify-content-center my-4">Principales compétences</h2>
-			<div class="row justify-content-center mb-2">
+		<div class="d-flex fullMargin flex-column" id="apropos">
+			<h2 class="w-100 my-4 text-center title">A propos</h2>
+			<div class="container mb-2">
+				<p>
+					J'aime programmer pour deux raisons : proposer des solutions créatives aux problèmes
+					et m'impliquer dans un projet qui fait sens.<br><br>
+					Je me décrirais comme :<br>
+					<span style="display:inline;color:#830">Dynamique</span> : Je vais de l'avant et cherche à découvrir de nouveaux concepts et manières de travailler
+					pour être toujours plus efficace dans la réponse aux besoins métier.<br>
+					<span style="display:inline;color:#008">Méticuleux</span> : Je suis plus à l'aise dans un environnement que je maîtrise, d'où mon
+					envie de comprendre toutes les étapes du développement des applications.<br>
+					<span style="display:inline;color:#080">Curieux</span> : Toujours en quête de langages inconnus à conquérir pendant mes loisirs<br>
+				</p>
+			</div>
+		</div>
+
+		<div class="d-flex fullMargin flex-column" id="competences">
+			<h2 class="w-100 justify-content-center my-4 text-center title">Principales compétences</h2>
+			<div class="row justify-content-center m-2 g-5">
 				<div class="wow animate__animated animate__zoomIn">
 					<img src="<?= asset('img/portfolio/javascript.png') ?>" alt="javascript">
 					<span>Javascript</span>
@@ -38,7 +56,7 @@
 				</div>
 				<div class="wow animate__animated animate__zoomIn">
 					<img src="<?= asset('img/portfolio/php.png') ?>" alt="php">
-					<span>Php</span>
+					<span>PHP</span>
 					<label></label>
 				</div>
 				<div class="wow animate__animated animate__zoomIn">
@@ -76,9 +94,14 @@
 					<span>Bootstrap</span>
 					<label></label>
 				</div>
+				<div class="wow animate__animated animate__zoomIn">
+					<img src="<?= asset('img/portfolio/sql.png') ?>" alt="sql">
+					<span>SQL</span>
+					<label></label>
+				</div>
 			</div>
 			
-			<h2 class="w-100 justify-content-center my-4">Compétences secondaires</h2>
+			<h2 class="w-100 justify-content-center my-4 text-center title">Compétences secondaires</h2>
 			<div class="row row justify-content-center">
 				<div class="wow animate__animated animate__zoomIn">
 					<img src="<?= asset('img/portfolio/java.png') ?>" alt="java">
@@ -121,48 +144,72 @@
 					<label></label>
 				</div>
 			</div>
+		</div>
 
-			<div class="container-sm" id="contact">
-				<h2 class="my-4">Contact</h2>
-				<form class="my-4">
-					<div class="w-50 mx-auto wow animate__animated animate__slideInLeft form-floating my-3">
-						<input class="form-control" type="email" placeholder="bidon" required>
-						<label>Votre email</label>
-					</div>
-					<div class="w-50 mx-auto wow animate__animated animate__slideInLeft form-floating my-3" id="mailMessage">
-						<textarea class="form-control" placeholder="bidon" required></textarea>
-						<label>Entrez votre message</label>
-					</div>
-					<div class="wow animate__animated animate__slideInLeft my-3">
-						<button type="button" class="btn btn-dark" onclick="sendMail()">Envoyer</button>
-					</div>
-					<div class="wow animate__animated animate__slideInLeft">
-						<span></span>
-					</div>
-				</form>
+		<div class="d-flex fullMargin flex-column" id="autres">
+			<h2 class="text-center title">Autres</h2>
+			<div class="wow animate__animated animate__slideInLeft text-center">
+				  <a class="btn btn-dark btn-large" href="<?= asset('img/portfolio/CV.pdf') ?>" target="_blank">CV</a>
 			</div>
 		</div>
-		
-		
-		
+
+		<div class="d-flex fullMargin flex-column title" id="contact">
+			<h2 class="my-4 text-center">Contact</h2>
+			<form class="container-sm my-4">
+				<div class="w-50 mx-auto wow animate__animated animate__slideInLeft form-floating my-3">
+					<input class="form-control" type="email" placeholder="bidon" required>
+					<label>Votre email</label>
+				</div>
+				<div class="w-50 mx-auto wow animate__animated animate__slideInLeft form-floating my-3" id="mailMessage">
+					<textarea class="form-control" placeholder="bidon" required></textarea>
+					<label>Entrez votre message</label>
+				</div>
+				<div class="wow animate__animated animate__slideInLeft my-3 text-center">
+					<button type="button" class="btn btn-dark" onclick="sendMail()">Envoyer</button>
+				</div>
+				<div class="w-50">
+					<span></span>
+				</div>
+			</form>
+		</div>
+		<?php 
+			ini_set( 'display_errors', 1 );
+			error_reporting( E_ALL );
+			$from = "louis-bouchereau@louis-bouchereau.fr";
+			$to = "louis_bouchereau@laposte.net";
+			$subject = "Essai de PHP Mail";
+			$message = "PHP Mail fonctionne parfaitement";
+			$headers = "From:" . $from;
+			echo mail($to,$subject,$message, $headers);
+			echo "L'email a été envoyé.";
+		?>
 		<script>
 			// Mail
-			let contact = document.getElementById('contact');
-		
 			async function sendMail() {
+				let contact = document.getElementById('contact');
 				let msg = document.getElementById('mailMsg');
 				let data = new Object();
-				data['reply'] = contact.getElementByTagName('input')[0].value;
-				data['msg'] = contact.getElementByTagName('input')[1].value;
+				data['reply'] = contact.getElementsByTagName('input')[0].value;
+				data['msg'] = contact.getElementsByTagName('textarea')[0].value;
 				
 				const response = await fetch("<?= ajax('SendMail.php') ?>",{
 					method: "POST",
 					body: JSON.stringify(data)
 				});
+				console.log("sent")
 				
 				const res = await response.json();
+				console.log(res)
 				
-				contact.getElementByTagName('span')[0].innerHTML = res;
+				showText(contact.getElementsByTagName('span')[0], res, 0);
+			}
+
+			var showText = function (target, message, index) {   
+				if (index < message.length) {
+					console.log("s")
+					target.innerHTML += message[index++];
+					setTimeout(function () { showText(target, message, index); }, 100);
+				}
 			}
 
 			// Animations
@@ -173,7 +220,7 @@
 			const initMailDelays = new Promise((resolve, reject) => {
 				let inputs = document.getElementsByClassName('animate__slideInLeft');
 				for (let i=0; i<inputs.length; i++) {
-					inputs[i].dataset.wowDelay = (250*i) + "ms";
+					inputs[i].dataset.wowDelay = (500*i) + "ms";
 				}
 				resolve();
 			});
@@ -181,7 +228,7 @@
 			const initCompetencesDelays = new Promise((resolve, reject) => {
 				let competences = document.getElementsByClassName('animate__zoomIn');
 				for (let i=0; i<competences.length; i++) {
-					competences[i].dataset.wowDelay = (250*i) + "ms";
+					competences[i].dataset.wowDelay = (125*i) + "ms";
 				}
 				resolve();
 			});

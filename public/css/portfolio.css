@@ -11,11 +11,11 @@
 	color: white;
 }
 
-#presentation > div > div:nth-child(1) {
+#presentation > div > div:nth-child(2) {
 	font-size: 5em;
 }
 
-#presentation > div > div:nth-child(2) {
+#presentation > div > div:nth-child(3) {
 	font-size: 3em;
 }
 
@@ -24,45 +24,67 @@
 	filter: brightness(40%);
 }
 
+#apropos p {
+	font-size: 2em;
+}
+
 #competences:nth-child(even) {
 	text-align: center;
 }
 
 #competences > div {
 	position: relative;
+	font-size: .8em;
+	text-align: left;
 }
 
 #competences > div > div {
 	border: 2px solid #630;
 	background-color: #fff;
-	border-radius: 5px;
-	width: 9vw;
-	min-height: 15vh;
-	margin: 1vh;
+	border-radius: 10px;
+	width: 14vw;
+	min-height: 26vh;
+	margin: 1rem;
 	display: flex;
 	flex-flow: column;
 	justify-content: space-between;
 	align-items: center;
+	transition: transform .3s;
+	filter: grayscale(.1) contrast(.9);
+}
+
+#competences > div > div:hover {
+	transform: scale(1.1);
+	filter: grayscale(0) contrast(1);
 }
 
 #competences > div > div > img {
 	display: block;
-	max-height: 10vh;
+	max-height: 20vh;
 	max-width: 65%;
 	margin-top: 5%;
 }
 
 #competences > div > div > span {
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-	margin-top: 5%;
-	margin-bottom: 5%;
+	bottom: 0;
 	font-size: 1.4em;
 }
 
 #competences > div > div > label {
-	
+	display: none;
 }
 
 #mailMessage, #mailMessage textarea {
 	height: 8em;
 }
+
+.fullMargin {
+	margin-top: 200px;
+}
+
+.title {
+	background-color: #fc5;
+	padding: 5px;
+}
+
